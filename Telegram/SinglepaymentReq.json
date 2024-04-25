@@ -1,0 +1,88 @@
+{
+    "header": {
+      "userId": "753122M",
+      "functionId": "PMDPNSPS",
+      "action": "NEW",
+      "channel": "REST",
+      "moduleId": "PM",
+      "source": "FBO",
+      "hostCode": "TFBHKB",
+      "entityId": "ENTITY_ID1",
+      "msgId": "FOB3202404111999",
+      "userBranch": "950"
+    },
+    "txnDet": {
+      "transferType": "C",
+      "sourceCode": "FBO",
+      "txnBranch": "950",
+      "hostCode": "TFBHKB",
+      "customerNo": "00661",
+      "bookDate": "2024-03-15",
+      "credttm": "2024-03-15",
+      "custcrdtrfinitPmtinfDto": {
+        "dbtrnm": "CXXXXXXXXXXXXXMPANY LIMITED",
+        "dbtradrline1": "UXXXXXXXXXXXXXXXSEA IND CENTRE     ",
+        "dbtradrline2": "KXXXXXXXXXY KLN HK",
+        "dbtradrline3": "2XXXXXXXXXG STREET",
+        "reqdexctndt": "2023-12-03T00:00:00.00",
+        "dbtraccothrid": "950502006617",
+        "dbtraccccy": "USD",
+        "chrgbr": "OUR",      
+        "svclvlcd": "FOB3"
+      },
+      "custcrdtrfinitCdttxinfDto": {
+        "cdtrnm": "1/20240111-011",
+        "cdtradrline1": "1/AAAAAAAAAABBBBBBBBBBCCCCCCCCCCDDD",
+        "cdtradrline2": "3/HK/KKKKKKKKKKLLLLLLLLLLMMMMMMMMMM",
+        "cdtrctry": "HK",
+        "cdtraccothrid": "950900910039",
+        "instdamt": "33.00",
+        "instdamtccy": "USD",
+        "cdtragtbicfi": "CIBCHKHHXXX",
+        "cdtragtnm": "CTBC BANK CO.,LTD.",
+        "cdtragtadrline1": "H                                  ",
+        "cdtragtadrline2": "IFC                                ",
+        "cdtragtctry": "US",
+        "rmtinfustrd1": "FOB4 Test 14 1                    ",
+        "rmtinfustrd2": "/ROC/END2ENDID-TMP001              ",
+        "rmtinfustrd3": "/ULTB/Sivesh S                     ",
+        "rmtinfustrd4": "",
+        "endtoendid": "240110FOB3010012",
+        "instrid": "FOB3202404111449"
+      },
+      "CustcrdtrfinitChgDto": [
+        {
+          "amount": "1.0",
+          "componentName": "FTORCABLE1",
+          "pricingCcy": "USD",
+          "pricingCode": "SWFOUTUSD3"
+        },
+        {
+          "amount": "3.0",
+          "componentName": "FTORCOMM1",
+          "pricingCcy": "USD",
+          "pricingCode": "SWFOUTUSD3"
+        }
+      ],
+      "custcrdtrfinitAddinfDto": {
+        "instdrmbrsntagtbicfi":"CITIUS33XXX",
+        "creditNostro":"950900910012",
+        "recvr": "HSBCHKHHHKH",
+        "suppressCoverMessage": "N",
+        "processWithoutCover": "Y"
+      },
+      "misdetailsDto": {
+        "misGroup": "PM_MIS",
+        "txnmiscode1": "BG_CODE",
+        "txnMis1": "01001",
+        "txnmiscode2": "PRODUCT",
+        "txnMis2": "COR101"
+      },
+      "txnUdfDetDto":[
+        {
+          "fieldLabel":"NATURE_CNY",
+          "fieldValue":"3.NON-INDIVIDUALS(TRADE)"
+        }
+      ]
+    }
+  }

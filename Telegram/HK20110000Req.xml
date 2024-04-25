@@ -1,0 +1,92 @@
+<Tx>
+    <FMPConnectionString>
+        <SPName>FBOHK     </SPName>
+        <LoginID>FBOHK     </LoginID>
+        <Password>fuA5k+eI/lEy3/+UQt6VDA==</Password>
+        <TxnId>HK20110000</TxnId>
+    </FMPConnectionString>
+    <TxHead>
+        <HMSGID>P</HMSGID>
+        <HERRID>0000</HERRID>
+        <HSYDAY>1130418</HSYDAY>
+        <HSYTIME>110310</HSYTIME>
+        <HWSID>FBOHK     </HWSID>
+        <HSTANO>0201625</HSTANO>
+        <HDTLEN>1421</HDTLEN>
+        <HREQQ1></HREQQ1>
+        <HREPQ1></HREPQ1>
+        <HDRVQ1></HDRVQ1>
+        <HPVDQ1></HPVDQ1>
+        <HPVDQ2></HPVDQ2>
+        <HSYCVD>0000000</HSYCVD>
+        <HTLID></HTLID>
+        <HTXTID>HK20110000</HTXTID>
+        <HFMTID></HFMTID>
+        <HRETRN>E</HRETRN>
+        <HSLGNF></HSLGNF>
+        <HSPSCK></HSPSCK>
+        <HRTNCD></HRTNCD>
+        <HSBTRF></HSBTRF>
+        <HSFILL></HSFILL>
+    </TxHead>
+    <TxBody>
+        <TxXML>
+            <RequestHeader>
+                <FuncId>20110000</FuncId>
+                <TerminalId>1234    </TerminalId>
+                <AskSNO>HK2024041811031000201625f9afe1ee</AskSNO>
+                <AskTime>20240418110310</AskTime>
+            </RequestHeader>
+            <Content>
+                <CUSTCOD>91007       </CUSTCOD>
+                <CUSTNAME>91007                                                                           </CUSTNAME>
+                <TXSER>715240418F0000000497</TXSER>
+                <TXTYPE>1</TXTYPE>
+                <PRODCOD>FIB0</PRODCOD>
+                <RETRY></RETRY>
+                <TXDATE>20240418</TXDATE>
+                <CRCNT>001</CRCNT>
+                <CRCCY>USD</CRCCY>
+                <CRAMT>3500.0</CRAMT>
+                <FLRMKS>715240418F0000000497PHOENIxxxxxxx INTERNATIONAL IN</FLRMKS>
+                <PAYMENTDET1>PHOENIxxxxxxx INTERNATIONAL INC    </PAYMENTDET1>
+                <PAYMENTDET2>4F NO.25 CHANG AN E.RD.ZHONGSHAN   </PAYMENTDET2>
+                <PAYMENTDET3>200170041010                       </PAYMENTDET3>
+                <PACKNO></PACKNO>
+                <DRINFO>
+                    <DRBANK></DRBANK>
+                    <DRACCT>950028910078  </DRACCT>
+                    <DRCCY>USD</DRCCY>
+                    <DRAMT>3500.0</DRAMT>
+                    <DCHINF1>
+                        <DRCCOD1></DRCCOD1>
+                        <DRCCCY1></DRCCCY1>
+                        <DRCAMT1>0.0</DRCAMT1>
+                    </DCHINF1>
+                    <DCHINF2>
+                        <DRCCOD2></DRCCOD2>
+                        <DRCCCY2></DRCCCY2>
+                        <DRCAMT2 />
+                    </DCHINF2>
+                </DRINFO>
+                <CRINFO>
+                    <CRSER>715240418F0000000497</CRSER>
+                    <CRACCT>950003000506  </CRACCT>
+                    <CRCCY2>USD</CRCCY2>
+                    <CRAMT2>3500.0</CRAMT2>
+                    <FILLER2></FILLER2>
+                    <CCHINF1>
+                        <CRCCOD1></CRCCOD1>
+                        <CRCCCY1></CRCCCY1>
+                        <CRCAMT1>0.0</CRCAMT1>
+                    </CCHINF1>
+                    <CCHINF2>
+                        <CRCCOD2></CRCCOD2>
+                        <CRCCCY2></CRCCCY2>
+                        <CRCAMT2 />
+                    </CCHINF2>
+                </CRINFO>
+            </Content>
+        </TxXML>
+    </TxBody>
+</Tx>

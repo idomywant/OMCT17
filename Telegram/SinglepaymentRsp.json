@@ -1,0 +1,14 @@
+{
+    "txnrefno": "2411601072587000",
+    "sourceCode": "FBO",
+    "endtoendid": "240110FOB3010012",
+    "instrid": "FOB3202404111449",
+    "MSGSTATUS": "SUCCESS",
+    "TXNID": "2411601972288000",
+    "resp": [
+        {
+            "respCode": "PM-TXP-001",
+            "respDesc": "Transaction is submitted for processing"
+        }
+    ]
+}
