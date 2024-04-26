@@ -1,5 +1,9 @@
 package com.ifi.omct17.Classes.Flexcube;
 
+import java.util.ArrayList;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class SinglepaymentReq {
 	// import com.fasterxml.jackson.databind.ObjectMapper; // version 2.11.1
 	// import com.fasterxml.jackson.annotation.JsonProperty; // version 2.11.1
@@ -46,7 +50,7 @@ public class SinglepaymentReq {
 	    public String dbtradrline1;
 	    public String dbtradrline2;
 	    public String dbtradrline3;
-	    public Date reqdexctndt;
+	    public String reqdexctndt;
 	    public String dbtraccothrid;
 	    public String dbtraccccy;
 	    public String chrgbr;
