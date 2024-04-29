@@ -12,7 +12,7 @@ import com.ifi.omct17.Classes.Common.ValidateException;
 //import com.ifi.omct17.Classes.FBO.HK20110000Req;
 //import com.ifi.omct17.Classes.FBO.HK20110000Req.Tx;
 import com.ifi.omct17.Classes.FBO.HK20110000Rsp;
-import com.ifi.omct17.Classes.FBO.HK20110000Request.Tx;
+import com.ifi.omct17.Classes.FBO.HK20110000Request.HK20110000Req;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRsp;
 //import com.ifi.omct17.Classes.FBO.HK20110000Request.Tx;
 //import com.ifi.omct17.Interfaces.IProcessService;
@@ -23,7 +23,7 @@ public class HK20110000Handler {
 
 	Logger logger = LogManager.getLogger(this.getClass());
 
-	Tx tx;
+	HK20110000Req tx;
 	
 	SinglepaymentReq spReq = new SinglepaymentReq();
 	
@@ -48,7 +48,7 @@ public class HK20110000Handler {
 	private void PassRequest(String xmlString) throws JsonMappingException, JsonProcessingException {
 		XmlMapper xmlMapper = new XmlMapper();
 
-		tx = xmlMapper.readValue(xmlString, Tx.class);
+		tx = xmlMapper.readValue(xmlString, HK20110000Req.class);
 		logger.info("Finish Pass Tx");
 	}
 

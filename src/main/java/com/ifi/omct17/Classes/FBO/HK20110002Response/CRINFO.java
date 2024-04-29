@@ -1,3 +1,4 @@
+package com.ifi.omct17.Classes.FBO.HK20110002Response;
 public class CRINFO { 
 	public int CERRCOD;
 	public Object CERRMSG;
