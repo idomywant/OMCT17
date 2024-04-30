@@ -19,6 +19,10 @@ public class HK20110002Controller {
 			  produces = MediaType.APPLICATION_JSON_VALUE)
 	public void HK20110002(HttpEntity<String> httpEntity)
 	{
-		
+		try {
+			HK
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 }
