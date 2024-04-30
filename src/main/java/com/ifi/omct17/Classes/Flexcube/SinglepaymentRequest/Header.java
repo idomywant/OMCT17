@@ -1,4 +1,8 @@
 package com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest;
+
+import org.springframework.stereotype.Component;
+
+@Component("SinglepaymentRequest_Header")
 public class Header{
     public String userId;
     public String functionId;

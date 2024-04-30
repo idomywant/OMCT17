@@ -1,3 +1,10 @@
+package com.ifi.omct17.Classes.FBO.HK20110000Response;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("HK20110000Response_Content")
 public class Content { 
 	public int CUSTCOD;
 	public String TXSER;
@@ -10,6 +17,6 @@ public class Content {
 	public String FLRMKS;
 	public Object PACKNO;
 	public Object SUCCNT;
-	public DRINFO DRINFO;
-	public CRINFO CRINFO;
+	@Autowired @Qualifier("HK20110000Response_DRINFO") public DRINFO DRINFO;
+	@Autowired @Qualifier("HK20110000Response_CRINFO") public CRINFO CRINFO;
 }

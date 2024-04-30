@@ -1,4 +1,8 @@
 package com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest;
+
+import org.springframework.stereotype.Component;
+
+@Component("SinglepaymentRequest_MisdetailsDto")
 public class MisdetailsDto{
     public String misGroup;
     public String txnmiscode1;

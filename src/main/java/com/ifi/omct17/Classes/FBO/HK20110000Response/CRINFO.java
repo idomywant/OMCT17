@@ -1,3 +1,8 @@
+package com.ifi.omct17.Classes.FBO.HK20110000Response;
+
+import org.springframework.stereotype.Component;
+
+@Component("HK20110000Response_CRINFO")
 public class CRINFO { 
 	public int CERRCOD;
 	public Object CERRMSG;

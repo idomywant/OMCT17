@@ -1,4 +1,8 @@
 package com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest;
+
+import org.springframework.stereotype.Component;
+
+@Component("SinglepaymentRequest_CustcrdtrfinitCdttxinfDto")
 public class CustcrdtrfinitCdttxinfDto{
     public String cdtrnm;
     public String cdtradrline1;
