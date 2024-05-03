@@ -7,7 +7,9 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ifi.omct17.Classes.Flexcube.SinglepaymentReq;
+import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.SinglepaymentReq;
+
+
 
 @RestController
 public class HK20110002Controller {
@@ -20,7 +22,7 @@ public class HK20110002Controller {
 	public void HK20110002(HttpEntity<String> httpEntity)
 	{
 		try {
-			HK
+			//HK
 		} catch (Exception e) {
 			// TODO: handle exception
 		}

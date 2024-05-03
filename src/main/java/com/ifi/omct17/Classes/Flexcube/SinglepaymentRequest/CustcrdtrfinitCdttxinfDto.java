@@ -7,6 +7,8 @@ public class CustcrdtrfinitCdttxinfDto{
     public String cdtrnm;
     public String cdtradrline1;
     public String cdtradrline2;
+    public String cdtradrline3;
+    public String cdtradrline4;
     public String cdtrctry;
     public String cdtraccothrid;
     public String instdamt;
@@ -15,7 +17,9 @@ public class CustcrdtrfinitCdttxinfDto{
     public String cdtragtnm;
     public String cdtragtadrline1;
     public String cdtragtadrline2;
+    public String cdtragtadrline3;
     public String cdtragtctry;
+    public String intrmyagt1bicfi;
     public String rmtinfustrd1;
     public String rmtinfustrd2;
     public String rmtinfustrd3;

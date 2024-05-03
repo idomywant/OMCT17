@@ -1,6 +1,6 @@
 package com.ifi.omct17.Classes.FBO.HK20110002Request;
 public class Content { 
-	public int CUSTCOD;
+	public String CUSTCOD;
 	public String TXSER;
 	public int TXTYPE;
 	public String PRODCOD;
