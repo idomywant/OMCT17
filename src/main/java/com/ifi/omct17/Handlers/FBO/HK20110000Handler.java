@@ -14,7 +14,7 @@ import com.ifi.omct17.Classes.Common.ValidateException;
 
 import com.ifi.omct17.Classes.FBO.HK20110000Request.HK20110000Req;
 import com.ifi.omct17.Classes.FBO.HK20110000Response.HK20110000Rsp;
-import com.ifi.omct17.Classes.Flexcube.SinglepaymentRsp;
+//import com.ifi.omct17.Classes.Flexcube.SinglepaymentRsp;
 //import com.ifi.omct17.Classes.FBO.HK20110000Request.Tx;
 //import com.ifi.omct17.Interfaces.IProcessService;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.SinglepaymentReq;
