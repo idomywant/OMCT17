@@ -1,0 +1,138 @@
+<?xml version=""1.0"" encoding=""utf-8""?>
+<Tx>
+    <FMPConnectionString>
+        <SPName>FBOHK     </SPName>
+        <LoginID>FBOHK     </LoginID>
+        <Password>mPPs7ig+9vwTqWjdxBVDwQ==</Password>
+        <TxnId>HK20110002</TxnId>
+    </FMPConnectionString>
+    <TxHead>
+        <HMSGID>P</HMSGID>
+        <HERRID>0000</HERRID>
+        <HSYDAY>1130417</HSYDAY>
+        <HSYTIME>133850</HSYTIME>
+        <HWSID>FBOHK     </HWSID>
+        <HSTANO>0201545</HSTANO>
+        <HDTLEN>3186</HDTLEN>
+        <HREQQ1></HREQQ1>
+        <HREPQ1></HREPQ1>
+        <HDRVQ1></HDRVQ1>
+        <HPVDQ1></HPVDQ1>
+        <HPVDQ2></HPVDQ2>
+        <HSYCVD>0000000</HSYCVD>
+        <HTLID></HTLID>
+        <HTXTID>HK20110002</HTXTID>
+        <HFMTID></HFMTID>
+        <HRETRN>E</HRETRN>
+        <HSLGNF></HSLGNF>
+        <HSPSCK></HSPSCK>
+        <HRTNCD></HRTNCD>
+        <HSBTRF></HSBTRF>
+        <HSFILL></HSFILL>
+    </TxHead>
+    <TxBody>
+        <TxXML>
+            <RequestHeader>
+                <FuncId>20110002</FuncId>
+                <TerminalId>1234    </TerminalId>
+                <AskSNO>HK2024041713385000201545f84c3fa2</AskSNO>
+                <AskTime>20240417133850</AskTime>
+            </RequestHeader>
+            <Content>
+                <CUSTCOD>00566       </CUSTCOD>
+                <TXSER>715240417F0000000493</TXSER>
+                <TXTYPE>5</TXTYPE>
+                <PRODCOD>FOB3</PRODCOD>
+                <RETRY></RETRY>
+                <CRCNT>001</CRCNT>
+                <CRCCY>USD</CRCCY>
+                <CRAMT>1000.0</CRAMT>
+                <FLRMKS></FLRMKS>
+                <PACKNO></PACKNO>
+                <DRINFO>
+                    <DRBANK></DRBANK>
+                    <DRACCT>950003005669  </DRACCT>
+                    <DRCCY>USD</DRCCY>
+                    <DRAMT>1045.0</DRAMT>
+                    <DCHINF1>
+                        <DRCCOD1>ORHC</DRCCOD1>
+                        <DRCCCY1>USD</DRCCCY1>
+                        <DRCAMT1>32.0</DRCAMT1>
+                    </DCHINF1>
+                    <DCHINF2>
+                        <DRCCOD2>CBFC</DRCCOD2>
+                        <DRCCCY2>USD</DRCCCY2>
+                        <DRCAMT2>13.0</DRCAMT2>
+                    </DCHINF2>
+                </DRINFO>
+                <CRINFO>
+                    <CRSER>715240417F0000000493</CRSER>
+                    <CRFILL1></CRFILL1>
+                    <CRFILL2>000000000000000</CRFILL2>
+                    <SWRTIND>1</SWRTIND>
+                    <CCHINF1>
+                        <CRCCOD1></CRCCOD1>
+                        <CRCCCY1></CRCCCY1>
+                        <CRCAMT1>0.0</CRCAMT1>
+                    </CCHINF1>
+                    <CCHINF2>
+                        <CRCCOD2></CRCCOD2>
+                        <CRCCCY2></CRCCCY2>
+                        <CRCAMT2>0.0</CRCAMT2>
+                    </CCHINF2>
+                    <SWRTINF>
+                        <ORDCUST>00566       </ORDCUST>
+                        <REFNO>FBO0000000493   </REFNO>
+                        <TXDATE>20240329</TXDATE>
+                        <TXCCY>USD</TXCCY>
+                        <TXAMT>1000.0</TXAMT>
+                        <BENAC>20220804-001                      </BENAC>
+                        <BENADD1>1/TEXXXXXX                         </BENADD1>
+                        <BENADD2>3/SG                               </BENADD2>
+                        <BENADD3></BENADD3>
+                        <BENADD4></BENADD4>
+                        <BENCNTY>SG</BENCNTY>
+                        <SNDBANK>IRVTUS3NXXX </SNDBANK>
+                        <ACCBANK>CTCBSGSGXXX         </ACCBANK>
+                        <ACCNAME>CTBC BANK CO., LTD., SINGAPORE BRAN</ACCNAME>
+                        <ACCADR1>CH                                 </ACCADR1>
+                        <ACCADR2>TOWER 1                            </ACCADR2>
+                        <ACCADR3>29-01                              </ACCADR3>
+                        <R30CBCD>950900910419</R30CBCD>
+                        <R30RBCD></R30RBCD>
+                        <R30IBCD></R30IBCD>
+                        <BKCHRG>OUR</BKCHRG>
+                        <REMARK1>A123456789B123456789C123456789D1234</REMARK1>
+                        <REMARK2>E123456789F123456789G123456789H1234</REMARK2>
+                        <REMARK3>J123456789K123456789L123456789M1234</REMARK3>
+                        <REMARK4>N123456789O123456789P123456789Q1234</REMARK4>
+                        <BTBINF1></BTBINF1>
+                        <BTBINF2></BTBINF2>
+                        <BTBINF3></BTBINF3>
+                        <BTBINF4></BTBINF4>
+                        <BTBINF5></BTBINF5>
+                        <BTBINF6></BTBINF6>
+                        <WSSCCY1></WSSCCY1>
+                        <WSSCAM1S></WSSCAM1S>
+                        <WSSCAM1>0</WSSCAM1>
+                        <WSSCCY2></WSSCCY2>
+                        <WSSCAM2S></WSSCAM2S>
+                        <WSSCAM2>0</WSSCAM2>
+                        <WSRCCCY></WSRCCCY>
+                        <WSRCAMTS></WSRCAMTS>
+                        <WSRCAMT>0</WSRCAMT>
+                        <R30CUNM>BXXXXXXXXX LIMITED                 </R30CUNM>
+                        <R30CUA1>6XXXXXXXXXXXXNE 160 SEC 3          </R30CUA1>
+                        <R30CUA2>MXXXXXXXXXXXXXX TAIPEI TAIWAN      </R30CUA2>
+                        <R30CUA3></R30CUA3>
+                        <WBLOVRI></WBLOVRI>
+                        <WNCCTOV></WNCCTOV>
+                        <WNSDATE>20240417</WNSDATE>
+                        <ORDPAYAC>/950003005669 </ORDPAYAC>
+                        <AMLPURPOSE></AMLPURPOSE>
+                    </SWRTINF>
+                </CRINFO>
+            </Content>
+        </TxXML>
+    </TxBody>
+</Tx>

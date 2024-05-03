@@ -28,7 +28,7 @@ public class HK20110000Handler {
 	
 	SinglepaymentReq spReq = new SinglepaymentReq();
 	
-	SinglepaymentRsp singlepaymentRsp = new SinglepaymentRsp();
+	//SinglepaymentRsp singlepaymentRsp = new SinglepaymentRsp();
 
 	public HK20110000Rsp Prcedure(String requestString) throws ValidateException, Exception {
 
