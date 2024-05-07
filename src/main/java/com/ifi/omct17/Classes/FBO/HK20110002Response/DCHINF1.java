@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 @Component("HK20110002Response_DCHINF1")
 public class DCHINF1 { 
-	public Object DRCCOD1;
-	public Object DRCCCY1;
+	public String DRCCOD1;
+	public String DRCCCY1;
 	public int DRCAMT1;
 }

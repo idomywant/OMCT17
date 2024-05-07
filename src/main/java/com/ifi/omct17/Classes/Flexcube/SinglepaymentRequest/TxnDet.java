@@ -19,8 +19,8 @@ public class TxnDet{
     @Autowired @Qualifier("SinglepaymentRequest_CustcrdtrfinitPmtinfDto") public CustcrdtrfinitPmtinfDto custcrdtrfinitPmtinfDto;
     @Autowired @Qualifier("SinglepaymentRequest_CustcrdtrfinitCdttxinfDto") public CustcrdtrfinitCdttxinfDto custcrdtrfinitCdttxinfDto;
     @JsonProperty("CustcrdtrfinitChgDto") 
-    public ArrayList<CustcrdtrfinitChgDto> custcrdtrfinitChgDto;
+    public ArrayList<CustcrdtrfinitChgDto> custcrdtrfinitChgDto = new ArrayList();
     @Autowired @Qualifier("SinglepaymentRequest_CustcrdtrfinitAddinfDto") public CustcrdtrfinitAddinfDto custcrdtrfinitAddinfDto;
     @Autowired @Qualifier("SinglepaymentRequest_MisdetailsDto") public MisdetailsDto misdetailsDto;
-    public ArrayList<TxnUdfDetDto> txnUdfDetDto;
+    public ArrayList<TxnUdfDetDto> txnUdfDetDto = new ArrayList<>();
 }

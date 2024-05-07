@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,8 @@ public class HK20110002Controller {
 	@Autowired @Qualifier("SinglepaymentRequest_SinglepaymentReq") SinglepaymentReq singlepaymentReq;
 	@Autowired HK20110002Rsp hk20110002Rsp;
 	
+	@Autowired HK20110002Handler handler;
+	
 	@PostMapping(value = "/HK20110002", 
 			  consumes = MediaType.APPLICATION_JSON_VALUE, 
 			  produces = MediaType.APPLICATION_JSON_VALUE)
@@ -30,12 +33,14 @@ public class HK20110002Controller {
 	{
 		Logger logger = LogManager.getLogger(this.getClass());
 		
-		HK20110002Handler handler = new HK20110002Handler();
+		//HK20110002Handler handler = new HK20110002Handler();
 		
 		try {
 			String xmlString = httpEntity.getBody();
-			
+			//logger.info(addressString);
 			handler.Prcedure(xmlString, hk20110002Rsp, singlepaymentReq);
+			
+
 		
 		} catch (ValidateException e) {
 			logger.error(e.validErrorMessage);

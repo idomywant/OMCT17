@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -18,13 +20,19 @@ import com.ifi.omct17.Classes.FBO.HK20110002Response.HK20110002Rsp;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.CustcrdtrfinitChgDto;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.SinglepaymentReq;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.TxnUdfDetDto;
+import com.ifi.omct17.Classes.Flexcube.SinglepaymentResponse.SinglepaymentRsp;
+import com.ifi.omct17.Services.Singlepayment.SinglepaymentService;
 
 @Component
 public class HK20110002Handler {
 
+	@Autowired SinglepaymentService singlepaymentService;
+	
 	Logger logger = LogManager.getLogger(this.getClass());
 
 	SinglepaymentReq singlepaymentReq;
+	
+	SinglepaymentRsp singlepaymentRsp;
 
 	HK20110002Rsp hk20110002Rsp;
 
@@ -37,24 +45,30 @@ public class HK20110002Handler {
 
 		this.singlepaymentReq = iniSinglepaymentReq;
 
-		// Step 1. pass request
+		// Step 1. request message passer to HK20110002Req object
 		PassRequest(reqString);
 
-		// Step 2. Validate Request Value
+		// Step 2. Validate HK20110002Req Request object Value
 		ValidRequest();
 
-		// step 3. Mapping Field
-		FieldMapping();
+		// Step 3. Request Field Mapping HK20110002Req to Singlepayment Request object
+		RequestFieldMapping();
 		
-		// step 4. send OBPM single payment
+		// Step 4. send single payment message to OBPM service
 		LaunchSinglePaymentService();
 		
+		// Step 5. Response Field Mapping Singlepayment boject to HK20110002Rsp object
+		ResponseFieldMapping();
+
 		return this.hk20110002Rsp;
 	}
 
 	
+	
 
-	// Step 1.
+
+
+	// Step 1. request message passer to HK20110002Req object
 	private void PassRequest(String reqString) throws JsonMappingException, JsonProcessingException {
 		XmlMapper xmlMapper = new XmlMapper();
 
@@ -63,14 +77,14 @@ public class HK20110002Handler {
 		logger.info("Finish Pass Tx");
 	}
 
-	// Step 2.
+	// Step 2. Validate HK20110002Req Request object Value
 	private void ValidRequest() {
 		// TODO Auto-generated method stub
 
 	}
 
-	// Step 3.
-	private void FieldMapping() throws Exception {
+	// Step 3. Request Field Mapping HK20110002Req to Singlepayment Request object
+	private void RequestFieldMapping() throws Exception {
 		// Singlepayment header mapping
 		this.singlepaymentReq.header.entityId = "ENTITY_ID1";
 		this.singlepaymentReq.header.userId = "UPLOAD";
@@ -139,13 +153,23 @@ public class HK20110002Handler {
 		GetsuppressPaymentMessage();
 	}
 
-	// Step 4.
-	private void LaunchSinglePaymentService() throws JsonProcessingException {
-		ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-		String json = ow.writeValueAsString(this.singlepaymentReq);
-		logger.info(json);
+	// Step 4. send single payment message to OBPM service
+	private void LaunchSinglePaymentService() throws Exception {
+		
+		singlepaymentRsp = singlepaymentService.SinglepaymentService(this.singlepaymentReq);
+		
+		logger.info(singlepaymentRsp.toString());
 	}
 
+	// Step 5. Response Field Mapping Singlepayment boject to HK20110002Rsp object
+	private void ResponseFieldMapping() {
+		
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DUPDSER = singlepaymentRsp.txnrefno;
+			this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CUPDSER = singlepaymentRsp.txnrefno;
+			this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CRSER = singlepaymentRsp.instrid;
+			this.hk20110002Rsp.TxBody.TxXML.Content.TXSER = singlepaymentRsp.instrid;
+			//this.hk20110002Rsp.
+	}
 
 
 
@@ -209,7 +233,7 @@ public class HK20110002Handler {
 		String returnResult = "";
 		try
 		{
-			returnResult = TXSER.substring(4, 7) + TXSER.substring(12, 9);
+			returnResult = TXSER.substring(3, 10) + TXSER.substring(11, 20);
 		}
 		catch(Exception ex)
 		{

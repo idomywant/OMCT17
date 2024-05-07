@@ -8,11 +8,11 @@ import org.springframework.stereotype.Component;
 public class DRINFO { 
 	public int DERRCOD;
 	public String DERRMSG;
-	public double DUPDSER;
+	public String DUPDSER;
 	public String DRBANK;
-	public double DRACCT;
+	public String DRACCT;
 	public String DRCCY;
-	public int DRAMT;
+	public String DRAMT;
 	@Autowired @Qualifier("HK20110002Response_DCHINF1") public DCHINF1 DCHINF1;
 	@Autowired @Qualifier("HK20110002Response_DCHINF2") public DCHINF2 DCHINF2;
 }
