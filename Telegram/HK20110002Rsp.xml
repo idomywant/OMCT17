@@ -1,0 +1,140 @@
+<?xml version=""1.0"" encoding=""UTF-8""?>
+<Tx>
+    <TxHead>
+        <HMSGID>P</HMSGID>
+        <HERRID>0000</HERRID>
+        <HSYDAY>1130417</HSYDAY>
+        <HSYTIME>133850</HSYTIME>
+        <HWSID>FBOHK     </HWSID>
+        <HSTANO>0201545</HSTANO>
+        <HDTLEN>1570</HDTLEN>
+        <HREQQ1>          </HREQQ1>
+        <HREPQ1>          </HREPQ1>
+        <HDRVQ1>MWVNSVQ   </HDRVQ1>
+        <HPVDQ1>          </HPVDQ1>
+        <HPVDQ2>          </HPVDQ2>
+        <HSYCVD>0000000</HSYCVD>
+        <HTLID>          </HTLID>
+        <HTXTID>HK20110002</HTXTID>
+        <HFMTID>     </HFMTID>
+        <HRETRN>E</HRETRN>
+        <HSLGNF> </HSLGNF>
+        <HSPSCK>  </HSPSCK>
+        <HRTNCD> </HRTNCD>
+        <HSBTRF> </HSBTRF>
+        <HFILL> </HFILL>
+    </TxHead>
+    <TxBody>
+        <TxXML>
+            <ResponseHeader>
+                <FuncId>20110002</FuncId>
+                <ErrorCode>000000</ErrorCode>
+                <ErrorMsg>                                                            </ErrorMsg>
+                <TerminalId>1234    </TerminalId>
+                <AskSNO>HK2024041713385000201545f84c3fa2</AskSNO>
+            </ResponseHeader>
+            <Content>
+                <CUSTCOD>            </CUSTCOD>
+                <TXSER>715240417F0000000493</TXSER>
+                <TXTYPE> </TXTYPE>
+                <RETRY> </RETRY>
+                <CRCNT>   </CRCNT>
+                <CRCCY>                 </CRCCY>
+                <CRAMT>1000             </CRAMT>
+                <FLRMKS>                 </FLRMKS>
+                <PACKNO>                    </PACKNO>
+                <SUCCNT>   </SUCCNT>
+                <PRODCOD>FOB3</PRODCOD>
+                <DRINFO>
+                    <DERRCOD>000000</DERRCOD>
+                    <DERRMSG>                                                            </DERRMSG>
+                    <DUPDSER>2410801049438000</DUPDSER>
+                    <DRBANK>            </DRBANK>
+                    <DRACCT>950003005669  </DRACCT>
+                    <DRCCY>USD</DRCCY>
+                    <DRAMT>1000</DRAMT>
+                    <DCHINF1>
+                        <DRCCOD1>    </DRCCOD1>
+                        <DRCCCY1>   </DRCCCY1>
+                        <DRCAMT1>00000000000000000</DRCAMT1>
+                    </DCHINF1>
+                    <DCHINF2>
+                        <DRCCOD2>    </DRCCOD2>
+                        <DRCCCY2>   </DRCCCY2>
+                        <DRCAMT2>00000000000000000</DRCAMT2>
+                    </DCHINF2>
+                </DRINFO>
+                <CRINFO>
+                    <CERRCOD>000000</CERRCOD>
+                    <CERRMSG>                                                            </CERRMSG>
+                    <CUPDSER>2410801049438000</CUPDSER>
+                    <CRSER>240417F000000493</CRSER>
+                    <CRFILL1>              </CRFILL1>
+                    <CRFILL2>   </CRFILL2>
+                    <SWRTIND>000000000000000</SWRTIND>
+                    <CCHINF1>
+                        <CRCCOD1>    </CRCCOD1>
+                        <CRCCCY1>   </CRCCCY1>
+                        <CRCAMT1>00000000000000000</CRCAMT1>
+                    </CCHINF1>
+                    <CCHINF2>
+                        <CRCCOD2>    </CRCCOD2>
+                        <CRCCCY2>USD</CRCCCY2>
+                        <CRCAMT2>1000</CRCAMT2>
+                    </CCHINF2>
+                </CRINFO>
+                <SWRTINF>
+                    <ORDCUST>            </ORDCUST>
+                    <REFNO>                </REFNO>
+                    <TXDATE>        </TXDATE>
+                    <TXCCY>000</TXCCY>
+                    <TXAMT>00000000000000000</TXAMT>
+                    <BENAC>                                  </BENAC>
+                    <BENADD1>                                   </BENADD1>
+                    <BENADD2>                                   </BENADD2>
+                    <BENADD3>                                   </BENADD3>
+                    <BENADD4>                                   </BENADD4>
+                    <BENCNTY>  </BENCNTY>
+                    <SNDBANK>            </SNDBANK>
+                    <ACCBANK>                    </ACCBANK>
+                    <ACCNAME>                                   </ACCNAME>
+                    <ACCADR1>                                   </ACCADR1>
+                    <ACCADR2>                                   </ACCADR2>
+                    <ACCADR3>                                   </ACCADR3>
+                    <R30CBCD>            </R30CBCD>
+                    <R30RBCD>            </R30RBCD>
+                    <R30IBCD>            </R30IBCD>
+                    <BKCHRG>   </BKCHRG>
+                    <REMARK1>                                   </REMARK1>
+                    <REMARK2>                                   </REMARK2>
+                    <REMARK3>                                   </REMARK3>
+                    <REMARK4>                                   </REMARK4>
+                    <BTBINF1>                                   </BTBINF1>
+                    <BTBINF2>                                   </BTBINF2>
+                    <BTBINF3>                                   </BTBINF3>
+                    <BTBINF4>                                   </BTBINF4>
+                    <BTBINF5>                                   </BTBINF5>
+                    <BTBINF6>                                   </BTBINF6>
+                    <WSSCCY1>   </WSSCCY1>
+                    <WSSCAM1S>0</WSSCAM1S>
+                    <WSSCAM1>000000000000000</WSSCAM1>
+                    <WSSCCY2>000</WSSCCY2>
+                    <WSSCAM2S>0</WSSCAM2S>
+                    <WSSCAM2>000000000000000</WSSCAM2>
+                    <WSRCCCY>000</WSRCCCY>
+                    <WSRCAMTS>0</WSRCAMTS>
+                    <WSRCAMT>000000000000000</WSRCAMT>
+                    <R30CUNM>00000000000000000000000000000000000</R30CUNM>
+                    <R30CUA1>00000000000000000000000000000000000</R30CUA1>
+                    <R30CUA2>00000000000000000000000000000000000</R30CUA2>
+                    <R30CUA3>00000000000000000000000000000000000</R30CUA3>
+                    <WBLOVRI>0</WBLOVRI>
+                    <WNCCTOV>0</WNCCTOV>
+                    <WNSDATE>00000000</WNSDATE>
+                    <ORDPAYAC>00000000000000</ORDPAYAC>
+                    <AMLPURPOSE>000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</AMLPURPOSE>
+                </SWRTINF>
+            </Content>
+        </TxXML>
+    </TxBody>
+</Tx>
