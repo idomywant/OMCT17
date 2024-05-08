@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component("HK20110002Response_CRINFO")
 public class CRINFO { 
-	public int CERRCOD;
+	public String CERRCOD;
 	public String CERRMSG;
 	public String CUPDSER;
 	public String CRSER;

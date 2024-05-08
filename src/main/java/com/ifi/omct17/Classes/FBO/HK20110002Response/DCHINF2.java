@@ -6,5 +6,5 @@ import org.springframework.stereotype.Component;
 public class DCHINF2 { 
 	public String DRCCOD2;
 	public String DRCCCY2;
-	public int DRCAMT2;
+	public String DRCAMT2;
 }

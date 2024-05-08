@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.appender.rolling.action.IfAccumulatedFileCount;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,7 @@ import com.ifi.omct17.Classes.FBO.HK20110002Response.HK20110002Rsp;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.CustcrdtrfinitChgDto;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.SinglepaymentReq;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.TxnUdfDetDto;
+import com.ifi.omct17.Classes.Flexcube.SinglepaymentResponse.Resp;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentResponse.SinglepaymentRsp;
 import com.ifi.omct17.Services.Singlepayment.SinglepaymentService;
 
@@ -164,13 +166,75 @@ public class HK20110002Handler {
 	// Step 5. Response Field Mapping Singlepayment boject to HK20110002Rsp object
 	private void ResponseFieldMapping() {
 		
-			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DUPDSER = singlepaymentRsp.txnrefno;
-			this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CUPDSER = singlepaymentRsp.txnrefno;
-			this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CRSER = singlepaymentRsp.instrid;
-			this.hk20110002Rsp.TxBody.TxXML.Content.TXSER = singlepaymentRsp.instrid;
-			//this.hk20110002Rsp.
+		//TxHead
+		this.hk20110002Rsp.TxHead.HMSGID = "P";
+		this.hk20110002Rsp.TxHead.HERRID = "9999"; // Unknow error.
+		this.hk20110002Rsp.TxHead.HSYDAY = this.hk20110002Req.TxHead.HSYDAY;
+		this.hk20110002Rsp.TxHead.HSYTIME = this.hk20110002Req.TxHead.HSYTIME;
+		this.hk20110002Rsp.TxHead.HWSID = this.hk20110002Req.TxHead.HWSID;
+		this.hk20110002Rsp.TxHead.HSTANO = this.hk20110002Req.TxHead.HSTANO;
+		this.hk20110002Rsp.TxHead.HDTLEN = "Unknow";
+		this.hk20110002Rsp.TxHead.HDRVQ1 = "Unknow";
+		this.hk20110002Rsp.TxHead.HSYCVD = "Unknow";
+		this.hk20110002Rsp.TxHead.HTXTID = this.hk20110002Req.TxHead.HTXTID;
+		this.hk20110002Rsp.TxHead.HRETRN = this.hk20110002Req.TxHead.HRETRN;
+		
+		this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.FuncId = this.hk20110002Req.TxBody.TxXML.RequestHeader.FuncId;
+		this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.TerminalId = this.hk20110002Req.TxBody.TxXML.RequestHeader.TerminalId;
+		this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.AskSNO = this.hk20110002Req.TxBody.TxXML.RequestHeader.AskSNO;
+		// this function is determine the transaction is success or fail
+		this.SinglepaymentRspResulMapping();
+		
+		// OBPM  response success or fail different response is vie singlepaymentRes this part is common information
+		//this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DUPDSER = singlepaymentRsp.txnrefno;
+		//this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CUPDSER = singlepaymentRsp.txnrefno;
+		this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CRSER = this.GetInstridBySpecRule(singlepaymentRsp.instrid);
+		this.hk20110002Rsp.TxBody.TxXML.Content.TXSER = this.GetInstridBySpecRule(singlepaymentRsp.instrid);
+		
+		
 	}
-
+	
+	// Get Instrid by spec Rule FBO.OBPM Service v6.7
+	private String GetInstridBySpecRule(String sInstrid)
+	{
+		return "715" + (singlepaymentRsp.instrid.substring(0, 7)) + "0" + singlepaymentRsp.instrid.substring(7, 16);
+	}
+	
+	// determine the singlepayment response is success or failed
+	private void SinglepaymentRspResulMapping() {
+		// Singlepayment service response success
+		if(singlepaymentRsp.resp.size() == 1 && ((Resp)singlepaymentRsp.resp.get(0)).respCode.trim().equalsIgnoreCase("PM-TXP-001"))
+		{
+			this.hk20110002Rsp.TxHead.HERRID = "0000";
+			//success TxHead
+			this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.ErrorCode = "000000";
+			this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.ErrorMsg = "";
+			
+			//Success TxBody
+			this.hk20110002Rsp.TxBody.TxXML.Content.CRAMT = this.hk20110002Req.TxBody.TxXML.Content.CRAMT;
+			
+			this.hk20110002Rsp.TxBody.TxXML.Content.PRODCOD = this.hk20110002Req.TxBody.TxXML.Content.PRODCOD;
+			
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DERRCOD = "000000";
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DERRMSG = "";
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DUPDSER = singlepaymentRsp.txnrefno;
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DRBANK = this.hk20110002Req.TxBody.TxXML.Content.DRINFO.DRBANK;
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DRACCT = this.hk20110002Req.TxBody.TxXML.Content.DRINFO.DRACCT;
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DRCCY = this.hk20110002Req.TxBody.TxXML.Content.DRINFO.DRCCY;
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DRAMT = this.hk20110002Req.TxBody.TxXML.Content.DRINFO.DRAMT;
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DCHINF1.DRCAMT1 = "00000000000000000";
+			this.hk20110002Rsp.TxBody.TxXML.Content.DRINFO.DCHINF2.DRCAMT2 = "00000000000000000";
+			
+			this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CERRCOD = "000000";
+			this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CERRMSG = "";
+			this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CUPDSER = singlepaymentRsp.txnrefno;
+			this.hk20110002Rsp.TxBody.TxXML.Content.CRINFO.CRSER = this.GetInstridBySpecRule(singlepaymentRsp.instrid);
+		}else {
+			this.hk20110002Rsp.TxHead.HERRID = "F073";
+			this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.ErrorCode = ((Resp)singlepaymentRsp.resp.get(0)).respCode.trim();
+			this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.ErrorMsg = ((Resp)singlepaymentRsp.resp.get(0)).respDesc.trim();
+		}
+	}
 
 
 	private void GetsuppressPaymentMessage() {

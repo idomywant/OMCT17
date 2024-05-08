@@ -2,14 +2,14 @@ package com.ifi.omct17.Classes.FBO.HK20110002Request;
 public class Content { 
 	public String CUSTCOD;
 	public String TXSER;
-	public int TXTYPE;
+	public String TXTYPE;
 	public String PRODCOD;
-	public Object RETRY;
-	public int CRCNT;
+	public String RETRY;
+	public String CRCNT;
 	public String CRCCY;
-	public double CRAMT;
-	public Object FLRMKS;
-	public Object PACKNO;
+	public String CRAMT;
+	public String FLRMKS;
+	public String PACKNO;
 	public DRINFO DRINFO;
 	public CRINFO CRINFO;
 }

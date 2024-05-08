@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component("HK20110002Response_DRINFO")
 public class DRINFO { 
-	public int DERRCOD;
+	public String DERRCOD;
 	public String DERRMSG;
 	public String DUPDSER;
 	public String DRBANK;

@@ -47,10 +47,6 @@ public class SinglepaymentService {
 			RestTemplate restTemplate = new RestTemplate();
 		    
 			String reString = restTemplate.postForObject(address, entity, String.class);
-			//restTemplate.exchange(address, HttpMethod.POST, entity,SinglepaymentRsp.class);
-			
-			//result = restTemplate.postForObject(address,singlepaymentReq, SinglepaymentRsp.class,"1");
-			//result = restTemplate.post//.postForObject(address,singlepaymentReq, SinglepaymentRsp.class);
 			
 			//https://stackoverflow.com/questions/19238715/how-to-set-an-accept-header-on-spring-resttemplate-request
 			
@@ -66,6 +62,4 @@ public class SinglepaymentService {
 		
 		return result;
 	}
-	
-	
 }

@@ -12,7 +12,7 @@ public class Content {
 	public String RETRY;
 	public String CRCNT;
 	public String CRCCY;
-	public int CRAMT;
+	public String CRAMT;
 	public String FLRMKS;
 	public String PACKNO;
 	public String SUCCNT;
