@@ -36,7 +36,8 @@ public class HK20110002Controller {
 		Logger logger = LogManager.getLogger(this.getClass());
 		
 		//HK20110002Handler handler = new HK20110002Handler();
-		
+		logger.info("Hello 冠宇 info");
+		logger.error("Hello 冠宇 error");
 		try {
 			String xmlString = httpEntity.getBody();
 			
