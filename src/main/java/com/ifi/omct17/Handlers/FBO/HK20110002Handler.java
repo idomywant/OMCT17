@@ -16,6 +16,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import com.ifi.omct17.Classes.Common.ValidateException;
 import com.ifi.omct17.Classes.FBO.HK20110002Request.HK20110002Req;
 import com.ifi.omct17.Classes.FBO.HK20110002Response.HK20110002Rsp;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.CustcrdtrfinitChgDto;
@@ -40,7 +41,13 @@ public class HK20110002Handler {
 
 	HK20110002Req hk20110002Req = new HK20110002Req();
 
-	public HK20110002Rsp Prcedure(String reqString, HK20110002Rsp iniHK20110002Rsp,
+	/**
+	 * procedure the logic process
+	 * @param reqString - RESTful XML body
+	 * @param iniHK20110002Rsp - response reference object
+	 * @param iniSinglepaymentReq - singlepayment request object
+	 * */
+	public void Procedure(String reqString, HK20110002Rsp iniHK20110002Rsp,
 			SinglepaymentReq iniSinglepaymentReq) throws Exception {
 		// Step 0. Initial Objects
 		this.hk20110002Rsp = iniHK20110002Rsp;
@@ -60,17 +67,33 @@ public class HK20110002Handler {
 		LaunchSinglePaymentService();
 		
 		// Step 5. Response Field Mapping Singlepayment boject to HK20110002Rsp object
-		ResponseFieldMapping();
-
-		return this.hk20110002Rsp;
+		ResponseFieldMapping();	
 	}
 
+
+	/**
+	 * When Exception occur
+	 * */ 
+	public void ExceptionResponse(Exception e) {
+		if (e.getClass() == ValidateException.class) {
+			this.hk20110002Rsp.TxHead.HERRID = "F077";
+			this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.ErrorCode = e.toString();
+			this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.ErrorMsg = ((ValidateException)e).validErrorMessage;
+		}else if (e.getClass() == Exception.class) {
+			this.hk20110002Rsp.TxHead.HERRID = "F078";
+			this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.ErrorCode = e.toString();
+			this.hk20110002Rsp.TxBody.TxXML.ResponseHeader.ErrorMsg = e.getMessage();
+		}
+
+	}
 	
 	
 
 
 
-	// Step 1. request message passer to HK20110002Req object
+	/**
+	 * Step 1. request message passer to HK20110002Req object
+	 * */ 
 	private void PassRequest(String reqString) throws JsonMappingException, JsonProcessingException {
 		XmlMapper xmlMapper = new XmlMapper();
 
@@ -79,13 +102,17 @@ public class HK20110002Handler {
 		logger.info("Finish Pass Tx");
 	}
 
-	// Step 2. Validate HK20110002Req Request object Value
+	/**
+	 * Step 2. Validate Request object Value
+	 * */ 
 	private void ValidRequest() {
 		// TODO Auto-generated method stub
 
 	}
 
-	// Step 3. Request Field Mapping HK20110002Req to Singlepayment Request object
+	/**
+	 * Step 3. Request Field Mapping FBO request object to Singlepayment request object
+	 * */ 
 	private void RequestFieldMapping() throws Exception {
 		// Singlepayment header mapping
 		this.singlepaymentReq.header.entityId = "ENTITY_ID1";
@@ -155,7 +182,9 @@ public class HK20110002Handler {
 		GetsuppressPaymentMessage();
 	}
 
-	// Step 4. send single payment message to OBPM service
+	/**
+	 * Step 4. send single payment message to OBPM service
+	 * */ 
 	private void LaunchSinglePaymentService() throws Exception {
 		
 		singlepaymentRsp = singlepaymentService.SinglepaymentService(this.singlepaymentReq);
@@ -163,7 +192,9 @@ public class HK20110002Handler {
 		logger.info(singlepaymentRsp.toString());
 	}
 
-	// Step 5. Response Field Mapping Singlepayment boject to HK20110002Rsp object
+	/**
+	 * Step 5. Response Field Mapping Singlepayment boject to HK20110002Rsp object
+	 * */ 
 	private void ResponseFieldMapping() {
 		
 		//TxHead
@@ -194,13 +225,17 @@ public class HK20110002Handler {
 		
 	}
 	
-	// Get Instrid by spec Rule FBO.OBPM Service v6.7
+	/**
+	 * Get Instrid by spec Rule FBO.OBPM Service v6.7
+	 * */ 
 	private String GetInstridBySpecRule(String sInstrid)
 	{
 		return "715" + (singlepaymentRsp.instrid.substring(0, 7)) + "0" + singlepaymentRsp.instrid.substring(7, 16);
 	}
 	
-	// determine the singlepayment response is success or failed
+	/**
+	 * determine the singlepayment response is success or failed
+	 * */ 
 	private void SinglepaymentRspResulMapping() {
 		// Singlepayment service response success
 		if(singlepaymentRsp.resp.size() == 1 && ((Resp)singlepaymentRsp.resp.get(0)).respCode.trim().equalsIgnoreCase("PM-TXP-001"))
@@ -264,18 +299,31 @@ public class HK20110002Handler {
 		}
 		
 	}
-
+	
+	/**
+	 * 3.1
+	 * Get Message ID from documentv6.5
+	 * */
 	private String GetMsgID() {
 		String fboMsgID = hk20110002Req.TxHead.HTXTID + hk20110002Req.TxHead.HSYDAY + hk20110002Req.TxHead.HSYTIME
 				+ hk20110002Req.TxBody.TxXML.Content.TXSER;
 		return fboMsgID;
 	}
 
+	/**
+	 * 3.2
+	 * Get current date time format is yyyy-MM-dd
+	 * @return yyyy-MM-dd current date time
+	 */
 	private String GetDtNow() {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		return LocalDate.now().format(formatter);
 	}
 	
+	/**
+	 * 3.3 use product code to case which intrmyagt1bicfi field
+	 * @param pRODCOD
+	 * */
 	private String Get_intrmyagt1bicfi_Code(String pRODCOD) {
 		String returnCode = "";
 		switch (pRODCOD.trim()) {
@@ -292,6 +340,9 @@ public class HK20110002Handler {
 		return returnCode;
 	}
 	
+	/**
+	 * 3.4 Get TXSER 16 serial
+	 * */
 	private String GetTXSER_16(String TXSER) throws Exception
 	{
 		String returnResult = "";
@@ -306,6 +357,10 @@ public class HK20110002Handler {
 		return returnResult;
 	}
 	
+	/**
+	 * 3.5 Get TXSER 16 serial
+	 * FTORCOMM2 FTORCABLE2
+	 * */
 	private ArrayList<CustcrdtrfinitChgDto> GetCustcrdtrfinitChgDtoArray() throws Exception
 	{
 		ArrayList<CustcrdtrfinitChgDto> arrayList = new ArrayList();
@@ -340,6 +395,9 @@ public class HK20110002Handler {
 		return arrayList;
 	}
 	
+	/**
+	 * 3.6 check TxnUdfDetDto
+	 * */
 	private ArrayList<TxnUdfDetDto> GetTxnUdfDetDtoArrayList() throws Exception
 	{
 		ArrayList<TxnUdfDetDto> arrayList = new ArrayList();
@@ -365,6 +423,9 @@ public class HK20110002Handler {
 		return arrayList;
 	}
 	
+	/**
+	 * 3.7 get RECVR by product code
+	 * */
 	private String GetRECVR() {
 		
 		String returnString = "";
@@ -379,6 +440,10 @@ public class HK20110002Handler {
 		return returnString;
 	}
 	
+	/**
+	 * Get SuppressCoverMsgFlag
+	 * @return flag value Y or N
+	 * */
 	private String GetSuppressCoverMsgFlag()
 	{
 		String returnString = "";

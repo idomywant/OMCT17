@@ -34,22 +34,21 @@ public class HK20110002Controller {
 	//public HK20110002Rsp HK20110002(String httpEntity)
 	{
 		Logger logger = LogManager.getLogger(this.getClass());
-		
 		//HK20110002Handler handler = new HK20110002Handler();
-		logger.info("Hello 冠宇 info");
-		logger.error("Hello 冠宇 error");
 		try {
 			String xmlString = httpEntity.getBody();
 			
-			handler.Prcedure(xmlString, hk20110002Rsp, singlepaymentReq);
+			handler.Procedure(xmlString, hk20110002Rsp, singlepaymentReq);
 
 		} catch (ValidateException e) {
 			logger.error(e.validErrorMessage);
+			handler.ExceptionResponse(e);
 		}
 		catch (Exception e) {
-			
 			logger.error(e);
+			handler.ExceptionResponse(e);
 		}
+		
 		return hk20110002Rsp;
 	}
 }

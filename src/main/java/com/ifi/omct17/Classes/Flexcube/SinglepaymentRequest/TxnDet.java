@@ -16,6 +16,7 @@ public class TxnDet{
     public String customerNo;
     public String bookDate;
     public String credttm;
+    public String remarks;
     @Autowired @Qualifier("SinglepaymentRequest_CustcrdtrfinitPmtinfDto") public CustcrdtrfinitPmtinfDto custcrdtrfinitPmtinfDto;
     @Autowired @Qualifier("SinglepaymentRequest_CustcrdtrfinitCdttxinfDto") public CustcrdtrfinitCdttxinfDto custcrdtrfinitCdttxinfDto;
     @JsonProperty("CustcrdtrfinitChgDto") 
