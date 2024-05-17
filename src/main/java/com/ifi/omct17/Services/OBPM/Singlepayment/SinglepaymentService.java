@@ -25,7 +25,7 @@ import com.ifi.omct17.Classes.Flexcube.SinglepaymentResponse.SinglepaymentRsp;
 @Component
 public class SinglepaymentService {
 
-	@Value("${service.singlepayment}")
+	@Value("${serviceaddr.OBPM.singlepayment}")
 	private String address;
 	
 	Logger logger = LogManager.getLogger(this.getClass());
