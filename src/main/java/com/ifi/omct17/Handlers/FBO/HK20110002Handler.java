@@ -6,15 +6,11 @@ import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.appender.rolling.action.IfAccumulatedFileCount;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import com.ifi.omct17.Classes.Common.ValidateException;
 import com.ifi.omct17.Classes.FBO.HK20110002Request.HK20110002Req;
@@ -24,7 +20,7 @@ import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.SinglepaymentReq;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.TxnUdfDetDto;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentResponse.Resp;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentResponse.SinglepaymentRsp;
-import com.ifi.omct17.Services.Singlepayment.SinglepaymentService;
+import com.ifi.omct17.Services.OBPM.Singlepayment.SinglepaymentService;
 
 @Component
 public class HK20110002Handler {

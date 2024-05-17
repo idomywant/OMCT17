@@ -1,4 +1,4 @@
-package com.ifi.omct17.Services.Singlepayment;
+package com.ifi.omct17.Services.OBPM.Singlepayment;
 
 
 
@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import javax.management.loading.PrivateClassLoader;
 
+import com.ifi.omct17.Classes.Common.FJLogger;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
@@ -28,7 +29,11 @@ public class SinglepaymentService {
 	private String address;
 	
 	Logger logger = LogManager.getLogger(this.getClass());
-	
+
+	/**
+	 * This is launch SinglepaymentService
+	 * @param singlepaymentReq Request Model
+	 * */
 	public SinglepaymentRsp SinglepaymentService(SinglepaymentReq singlepaymentReq) throws Exception {
 		
 		
@@ -55,6 +60,7 @@ public class SinglepaymentService {
 			result = objectMapper.readValue(reString, SinglepaymentRsp.class);
 			
 			logger.info(reString);
+			//FJLogger.Info(reString);
 			
 		} catch (Exception e) {
 			throw new Exception("SinglepaymentService() Error" + e.getMessage());

@@ -1,29 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="DEBUG">
+<Configuration status="WARN">
 	<Appenders>
-		<Console name="LogToConsole" target="SYSTEM_OUT">
-			<PatternLayout
-				pattern="%style{%date{DEFAULT}}{yellow}
-      %highlight{%-5level}{FATAL=bg_red, ERROR=red, WARN=yellow, INFO=red} 
-      %message" />
-		</Console>
-		<File name="LogToFile" fileName="logs/app.log">
+		<File name="MyCustomLogFile" fileName="C:/logs/mylog.log">
 			<PatternLayout>
-				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+				<Pattern>%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n</Pattern>
 			</PatternLayout>
 		</File>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+		</Console>
 	</Appenders>
 	<Loggers>
-		<Logger name="com.mkyong" level="debug" additivity="false">
-			<AppenderRef ref="LogToFile" />
-			<AppenderRef ref="LogToConsole" />
-		</Logger>
-		<Logger name="org.springframework.boot" level="error" additivity="false">
-			<AppenderRef ref="LogToConsole" />
-		</Logger>
-		<Root level="error">
-			<AppenderRef ref="LogToFile" />
-			<AppenderRef ref="LogToConsole" />
+		<Root level="all">
+			<AppenderRef ref="MyCustomLogFile"/>
+			<AppenderRef ref="Console"/>
 		</Root>
 	</Loggers>
 </Configuration>

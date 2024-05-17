@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.ctc.wstx.shaded.msv_core.grammar.xmlschema.Field;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -21,7 +20,7 @@ import com.ifi.omct17.Classes.FBO.HK20110000Response.HK20110000Rsp;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.SinglepaymentReq;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentRequest.TxnUdfDetDto;
 import com.ifi.omct17.Classes.Flexcube.SinglepaymentResponse.SinglepaymentRsp;
-import com.ifi.omct17.Services.Singlepayment.SinglepaymentService;
+import com.ifi.omct17.Services.OBPM.Singlepayment.SinglepaymentService;
 
 public class HK20110000Handler {
 
