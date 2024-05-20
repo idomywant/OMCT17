@@ -6,13 +6,13 @@ import org.springframework.stereotype.Component;
 
 @Component("HK20110000Response_DRINFO")
 public class DRINFO { 
-	public int DERRCOD;
-	public Object DERRMSG;
+	public String DERRCOD;
+	public String DERRMSG;
 	public String DUPDSER;
-	public Object DRBANK;
-	public double DRACCT;
+	public String DRBANK;
+	public String DRACCT;
 	public String DRCCY;
-	public int DRAMT;
+	public String DRAMT;
 	@Autowired @Qualifier("HK20110000Response_DCHINF1") public DCHINF1 DCHINF1;
 	@Autowired @Qualifier("HK20110000Response_DCHINF2") public DCHINF2 DCHINF2;
 }

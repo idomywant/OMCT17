@@ -1,18 +1,18 @@
 package com.ifi.omct17.Classes.FBO.HK20110000Request;
 public class TxHead { 
 	public String HMSGID;
-	public int HERRID;
-	public int HSYDAY;
-	public int HSYTIME;
+	public String HERRID;
+	public String HSYDAY;
+	public String HSYTIME;
 	public String HWSID;
-	public int HSTANO;
-	public int HDTLEN;
+	public String HSTANO;
+	public String HDTLEN;
 	public String HREQQ1;
 	public String HREPQ1;
 	public String HDRVQ1;
 	public String HPVDQ1;
 	public String HPVDQ2;
-	public int HSYCVD;
+	public String HSYCVD;
 	public String HTLID;
 	public String HTXTID;
 	public String HFMTID;

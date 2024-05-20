@@ -4,9 +4,9 @@ import org.springframework.stereotype.Component;
 
 @Component("HK20110000Response_ResponseHeader")
 public class ResponseHeader { 
-	public int FuncId;
-	public int ErrorCode;
-	public Object ErrorMsg;
-	public int TerminalId;
+	public String FuncId;
+	public String ErrorCode;
+	public String ErrorMsg;
+	public String TerminalId;
 	public String AskSNO;
 }
