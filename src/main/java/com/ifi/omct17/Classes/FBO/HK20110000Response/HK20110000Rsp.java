@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 @JacksonXmlRootElement(localName = "Tx")
-@Component
+@Component("HK20110000Response_HK20110000Rsp")
 public class HK20110000Rsp { 
 	@Autowired @Qualifier("HK20110000Response_TxHead") public TxHead TxHead;
 	@Autowired @Qualifier("HK20110000Response_TxBody") public TxBody TxBody;

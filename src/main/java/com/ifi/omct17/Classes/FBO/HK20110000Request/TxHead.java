@@ -1,5 +1,9 @@
 package com.ifi.omct17.Classes.FBO.HK20110000Request;
-public class TxHead { 
+
+import org.springframework.stereotype.Component;
+
+@Component("HK20110000Request_TxHead")
+public class TxHead {
 	public String HMSGID;
 	public String HERRID;
 	public String HSYDAY;

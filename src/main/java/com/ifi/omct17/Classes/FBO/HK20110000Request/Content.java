@@ -1,5 +1,11 @@
 package com.ifi.omct17.Classes.FBO.HK20110000Request;
-public class Content { 
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component("HK20110000Request_Content")
+public class Content {
 	public String CUSTCOD;
 	public String CUSTNAME;
 	public String TXSER;
@@ -15,6 +21,8 @@ public class Content {
 	public String PAYMENTDET2;
 	public String PAYMENTDET3;
 	public String PACKNO;
+	@Autowired @Qualifier("HK20110000Request_DRINFO")
 	public DRINFO DRINFO;
+	@Autowired @Qualifier("HK20110000Request_CRINFO")
 	public CRINFO CRINFO;
 }

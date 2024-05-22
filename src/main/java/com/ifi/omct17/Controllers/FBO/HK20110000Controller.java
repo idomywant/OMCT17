@@ -24,8 +24,8 @@ public class HK20110000Controller {
 	@Autowired @Qualifier("SinglepaymentRequest_SinglepaymentReq") SinglepaymentReq singlepaymentReq;
 	//@PostMapping("/HK20110000")
 	//@ExceptionHandler(HttpMediaTypeNotAcceptableException.class)
-	@Autowired HK20110000Req hk20110000Req;
-	@Autowired HK20110000Rsp hk20110000Rsp;
+//	@Autowired @Qualifier("HK20110000Request_HK20110000Req") HK20110000Req hk20110000Req;
+	@Autowired @Qualifier("HK20110000Response_HK20110000Rsp") HK20110000Rsp hk20110000Rsp;
 	
 	@PostMapping(value = "/HK20110000", 
 	  consumes = MediaType.APPLICATION_JSON_VALUE, 
